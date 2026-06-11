@@ -1,0 +1,54 @@
+name: "🐛 Репорт о проблеме (Bug Report)"
+description: "Сообщить о проблеме в работе программы"
+title: "[BUG]: "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Спасибо, что решили сообщить о проблеме! Пожалуйста, заполните форму ниже как можно подробнее.
+
+  - type: input
+    id: os_version
+    attributes:
+      label: "Ваша операционная система"
+      placeholder: "Например: Windows 10, Ubuntu 22.04, Android 13"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: provider
+    attributes:
+      label: "Тип подключения / Провайдер"
+      options:
+        - "Домашний интернет (Ростелеком/МГТС/Билайн и т.д.)"
+        - "Мобильный интернет (МТС/Мегафон/Теле2 и т.д.)"
+        - "Другое"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: "Описание проблемы"
+      description: "Что именно идет не так? Какая ошибка возникает?"
+      placeholder: "Например: Не грузится ни одна нейросеть"
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: "Логи / Консольный вывод"
+      description: "Вставьте сюда лог работы скрипта или консоли (Желательно обернуть в формате `тест`)"
+      render: bash
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: "Перед отправкой убедитесь, что:"
+      options:
+        - label: "Я проверил последнюю версию репозитория"
+          required: true
+        - label: "Я поискал похожие Issue и не нашёл дубликатов"
+          required: true
